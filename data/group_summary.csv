@@ -1,0 +1,5 @@
+Diagnosis,n,mean_age,median_age,percent_male,ALP_missing
+Blood Donor,533,47.1,47,59.7,0
+Hepatitis,24,38.7,37,83.3,3
+Fibrosis,21,52.3,51,61.9,9
+Cirrhosis,30,53.5,56,66.7,6
