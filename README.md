@@ -55,7 +55,7 @@ tests: ALB, ALP, ALT, AST, BIL, CHE, CHOL, CREA, GGT and PROT.
 ```
 hcv_project/
 ├── data/      raw data (never changed), clean data, results tables
-├── scripts/   01_explore.R to 05_statistics.R
+├── script/   01_explore.R to 05_statistics.R
 ├── figures/   the 3 figures
 ├── Report.Rmd and Report.html
 └── README.md
