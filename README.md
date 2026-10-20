@@ -4,7 +4,21 @@ How do routine liver function tests change as Hepatitis C progresses from hepati
 fibrosis to cirrhosis? This project analyses laboratory data from 608 people
 (533 healthy blood donors and 75 Hepatitis C patients) using R.
 
-**Full report:** `Report.html` (tables, figures, statistics and discussion)
+**Read the full report:** https://ayesha-nasir313.github.io/HCV-liver-markers/Report.html
+
+Many analyses of this public dataset train machine-learning classifiers directly on the raw
+values. This project instead checks the data with clinical laboratory knowledge first, and
+separates differences between healthy and ill people from changes across disease stages.
+
+## Skills shown
+
+- **R:** data cleaning and reshaping (dplyr, tidyr, readr), figures (ggplot2)
+- **Statistics:** non-parametric tests (Wilcoxon, Kruskal-Wallis, Spearman),
+  Benjamini-Hochberg correction for multiple testing, adjustment for age and sex
+  (linear regression)
+- **Reproducible reporting:** numbered scripts, raw data never modified, R Markdown report
+  that reads all results from files
+- **Data-quality checks** using clinical laboratory knowledge
 
 ## Background
 
@@ -16,8 +30,9 @@ data analysis in R, using a public dataset.
 ## Data
 
 HCV data from the UCI Machine Learning Repository (Lichtinghagen, Klawonn & Hoffmann, 2020;
-https://doi.org/10.24432/C5D612), licensed CC BY 4.0. It contains age, sex and 10 laboratory
-tests: ALB, ALP, ALT, AST, BIL, CHE, CHOL, CREA, GGT and PROT.
+https://doi.org/10.24432/C5D612), from the Institute of Clinical Chemistry, Hannover Medical
+School, Germany. It contains age, sex and 10 laboratory tests: ALB, ALP, ALT, AST, BIL, CHE,
+CHOL, CREA, GGT and PROT.
 
 ## What I did
 
@@ -39,8 +54,9 @@ tests: ALB, ALP, ALT, AST, BIL, CHE, CHOL, CREA, GGT and PROT.
   showed the strongest trend with disease stage (Spearman rho -0.74 and -0.72). The fall in
   albumin remained after adjusting for age and sex.
 - **Bilirubin** rose sharply in cirrhosis.
-- **Data quality:** unusually low ALT and ALP values in patients suggest that patient and donor
-  samples may have been measured differently, so donor-patient comparisons need caution.
+- **Data quality:** unusually low ALT and ALP values in patients (for example, ALT below
+  10 U/L in 18 of 30 cirrhosis patients) suggest that patient and donor samples may have been
+  measured differently, so donor-patient comparisons need caution.
 
 ![Key liver markers across stages of Hepatitis C](figures/fig2_key_markers.png)
 
@@ -48,18 +64,22 @@ tests: ALB, ALP, ALT, AST, BIL, CHE, CHOL, CREA, GGT and PROT.
 
 1. Open `hcv_project.Rproj` in RStudio
 2. Install the packages: `install.packages(c("readr", "dplyr", "tidyr", "ggplot2", "knitr", "rmarkdown"))`
-3. Run the scripts in order (`01` to `05`), then knit `Report.Rmd`
+3. Run the scripts in `script/` in order (`01` to `05`), then knit `Report.Rmd`
 
 ## Folders
 
 ```
-hcv_project/
+HCV-liver-markers/
 ├── data/      raw data (never changed), clean data, results tables
-├── script/   01_explore.R to 05_statistics.R
+├── script/    01_explore.R to 05_statistics.R
 ├── figures/   the 3 figures
 ├── Report.Rmd and Report.html
 └── README.md
 ```
+
+## Licence
+
+Code: MIT License (see `LICENSE`). Data: CC BY 4.0, from the original authors (see Data).
 
 ## Author
 
